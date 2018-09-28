@@ -1,0 +1,15 @@
+{
+  "name": "diapositives",
+  "version": "1.0.0",
+  "description": "Front-end project for Nat's Portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1"
+  }
+}
