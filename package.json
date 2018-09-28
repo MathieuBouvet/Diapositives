@@ -4,11 +4,17 @@
   "description": "Front-end project for Nat's Portfolio",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development"
+    "dev": "webpack --mode development --watch",
+    "wp_dev": "webpack --mode development --watch"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
+    "babel-preset-env": "^1.7.0",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.1"
   }
