@@ -9,8 +9,8 @@ export class Diapo {
 
 		this.slides = jQuery(slidesSelector);
 
-		this.state = new PseudoState(this, {
-			currentSlide: 0,
+		this.state = new PseudoState({
+			currentSlide: [0, this.onCurrentSlideChange],
 		})
 
 		jQuery(contentSelector).click(this.slideInc);
@@ -21,13 +21,16 @@ export class Diapo {
 	}
 
 	slideInc = () => {
+		console.log(this);
 		this.state.set({
-			currentSlide: 2,
+			currentSlide: this.state.get("currentSlide")+1,
 		});
 		console.log("test async");
+		this.state.displayMe();
 	}
 
-	stateChanged(attrName, newValue){
-		console.log("Changed: "+attrName+" new Vallue: "+newValue);
+	onCurrentSlideChange = (changed) => {
+		console.log(changed.name+" has changed. Was: "+changed.previousValue+". Now: "+changed.newValue);
+		console.log(this);
 	}
 }
