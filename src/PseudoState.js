@@ -21,21 +21,27 @@ export class PseudoState {
 	}
 
 	set(stateObject, force=false){
-		if(force){
-			for( let prop in stateObject ){
-				if(this[prop] !== undefined && this[prop].value !== stateObject[prop]){
-					this[prop].callback({
-						name: prop,
-						previousValue: this[prop].value,
-						newValue: stateObject[prop],
-					});
-					this[prop].value = stateObject[prop];
-				}
+		for( let prop in stateObject ){
+			if(this[prop] !== undefined){
+				this.setSingle(prop, stateObject[prop], force);
 			}
-		}else{
-			setTimeout( () => {
-				this.set(stateObject, true);
-			});
+		}
+	}
+
+	setSingle(name, newValue, force){
+		if(this[name].value !== newValue){
+			if(force){
+				this[name].callback({
+					name: name,
+					previousValue: this[name].value,
+					newValue: newValue,
+				});
+				this[name].value = newValue;
+			}else{
+				setTimeout( () => {
+					this.setSingle(name, newValue, true);
+				})
+			}
 		}
 	}
 }
