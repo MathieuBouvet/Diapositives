@@ -11,6 +11,7 @@ export class Diapo {
 
 		this.state = new PseudoState({
 			currentSlide: [0, this.onCurrentSlideChange],
+			test: ["plop", this.onTestChange],
 		})
 
 		jQuery(contentSelector).click(this.slideInc);
@@ -24,7 +25,8 @@ export class Diapo {
 		console.log(this);
 		this.state.set({
 			currentSlide: this.state.get("currentSlide")+1,
-		});
+			test: this.state.get("test")+"1",
+		}, true);
 		console.log("test async");
 		this.state.displayMe();
 	}
@@ -32,5 +34,9 @@ export class Diapo {
 	onCurrentSlideChange = (changed) => {
 		console.log(changed.name+" has changed. Was: "+changed.previousValue+". Now: "+changed.newValue);
 		console.log(this);
+	}
+
+	onTestChange = (changed) => {
+		console.log(changed.newValue);
 	}
 }
