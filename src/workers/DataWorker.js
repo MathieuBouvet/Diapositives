@@ -9,7 +9,6 @@ export class DataWorker {
 	}
 
 	update(){
-		console.log(this);
 		console.log("Must be overridden in a child class");
 	}
 }
