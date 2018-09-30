@@ -17,6 +17,7 @@ export class Diapo {
 		this.slideWorker = new SlideWorker(this.state);
 
 
+		this.scrollObserver.update();
 		this.state.displayMe();
 
 		jQuery(contentSelector).click(this.slideInc);
