@@ -11,7 +11,7 @@ export class PseudoState {
 		this.slideHeight = new PseudoStateAttribute(jQuery("article.drawings").height());
 		this.slideWidth = new PseudoStateAttribute(jQuery("article.drawings").width());
 
-		this.scrollPosition = new PseudoStateAttribute(-this.headerHeight);
+		this.scrollPosition = new PseudoStateAttribute(-this.headerHeight.value);
 		this.currentSlide = new PseudoStateAttribute(-1);
 
 		
