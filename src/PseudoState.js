@@ -1,16 +1,12 @@
-import {Diapo} from "./Diapo";
+import {PseudoStateAttribute} from "./PseudoStateAttribute";
 
 export class PseudoState {
 
 	constructor() {
-		this.relevantScroll = {
-			value: 0,
-			registered: [],
-		}
-		this.currentSlide = {
-			value: 0,
-			registered: [],
-		};
+		this.relevantScroll = new PseudoStateAttribute(0);
+		this.currentSlide = new PseudoStateAttribute(0);
+
+		
 
 	}
 	displayMe(){
