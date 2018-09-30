@@ -1,5 +1,6 @@
 import {StateAttribute} from "./StateAttribute";
 import {PseudoState} from "./PseudoState";
+import {ScrollObserver} from "./workers/ScrollObserver";
 
 export class Diapo {
 	constructor(containerSelector, contentSelector, slidesSelector){
