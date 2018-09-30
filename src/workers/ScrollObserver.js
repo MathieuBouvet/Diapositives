@@ -1,4 +1,5 @@
 import {DataWorker} from "./DataWorker";
+
 export class ScrollObserver extends DataWorker {
 
 	constructor(state){
