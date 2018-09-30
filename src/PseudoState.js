@@ -6,12 +6,13 @@ export class PseudoState {
 		this.mode = new PseudoStateAttribute("vertical");
 
 		this.headerHeight = new PseudoStateAttribute(jQuery("header#masthead").height());
-		
+		this.menuHeight = new PseudoStateAttribute(72);
+
 		this.slideHeight = new PseudoStateAttribute(jQuery("article.drawings").height());
 		this.slideWidth = new PseudoStateAttribute(jQuery("article.drawings").width());
 
-		this.relevantScroll = new PseudoStateAttribute(0);
-		this.currentSlide = new PseudoStateAttribute(0);
+		this.scrollPosition = new PseudoStateAttribute(-this.headerHeight);
+		this.currentSlide = new PseudoStateAttribute(-1);
 
 		
 
