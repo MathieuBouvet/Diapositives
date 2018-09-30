@@ -17,9 +17,9 @@ export class PseudoState {
 		return this[propName].value;
 	}
 
-	registerObserver(name, observer){
+	registerObserver(name, observerCallback){
 		if(this[name] !== undefined){
-			this[name].registered.push(observer);
+			this[name].registered.push(observerCallback);
 		}else{
 			console.log("Registration failed: "+name+" does not exist in state.");
 		}
@@ -49,7 +49,7 @@ export class PseudoState {
 	notifyObserversFor(name){
 		var observers = this[name].registered;
 		for(let i=0 ; i<observers.length ; i++){
-			observers[i].update();
+			observers[i]();
 		}
 	}
 }
