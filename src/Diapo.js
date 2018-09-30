@@ -1,4 +1,3 @@
-import {StateAttribute} from "./StateAttribute";
 import {PseudoState} from "./PseudoState";
 import {ScrollObserver} from "./workers/ScrollObserver";
 
@@ -10,10 +9,9 @@ export class Diapo {
 
 		this.slides = jQuery(slidesSelector);
 
-		this.state = new PseudoState({
-			currentSlide: [0, this.onCurrentSlideChange],
-			test: ["plop", this.onTestChange],
-		})
+		this.state = new PseudoState();
+		this.testDataWorker = new ScrollObserver(this.state, ["currentSlide"]);
+		this.state.displayMe();
 
 		jQuery(contentSelector).click(this.slideInc);
 	}
@@ -26,7 +24,6 @@ export class Diapo {
 		console.log(this);
 		this.state.set({
 			currentSlide: this.state.get("currentSlide")+1,
-			test: this.state.get("test")+"1",
 		}, true);
 		console.log("test async");
 		this.state.displayMe();
