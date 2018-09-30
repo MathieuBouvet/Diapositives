@@ -1,5 +1,7 @@
 import {PseudoState} from "./PseudoState";
 import {ScrollObserver} from "./workers/ScrollObserver";
+import {ScrollToSlideWorker} from "./workers/ScrollToSlideWorker";
+import {SlideWorker} from "./workers/SlideWorker";
 
 export class Diapo {
 	constructor(containerSelector, contentSelector, slidesSelector){
@@ -10,7 +12,11 @@ export class Diapo {
 		this.slides = jQuery(slidesSelector);
 
 		this.state = new PseudoState();
-		this.testDataWorker = new ScrollObserver(this.state, ["currentSlide"]);
+		this.scrollObserver = new ScrollObserver(this.state);
+		this.scrollToSlide = new ScrollToSlideWorker(this.state);
+		this.slideWorker = new SlideWorker(this.state);
+
+
 		this.state.displayMe();
 
 		jQuery(contentSelector).click(this.slideInc);
