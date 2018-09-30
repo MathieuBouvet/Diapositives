@@ -3,6 +3,13 @@ import {PseudoStateAttribute} from "./PseudoStateAttribute";
 export class PseudoState {
 
 	constructor() {
+		this.mode = new PseudoStateAttribute("vertical");
+
+		this.headerHeight = new PseudoStateAttribute(jQuery("header#masthead").height());
+		
+		this.slideHeight = new PseudoStateAttribute(jQuery("article.drawings").height());
+		this.slideWidth = new PseudoStateAttribute(jQuery("article.drawings").width());
+
 		this.relevantScroll = new PseudoStateAttribute(0);
 		this.currentSlide = new PseudoStateAttribute(0);
 
